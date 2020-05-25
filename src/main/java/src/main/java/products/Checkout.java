@@ -5,6 +5,7 @@
  */
 package main.java.products;
 import main.java.products.OrderNumber;
+import main.java.products.Total;
 import javax.swing.JOptionPane;
 import main.java.log.Home;
 import static products.Cart.c;
@@ -49,7 +50,7 @@ public class Checkout extends javax.swing.JFrame {
         }
         pret=pret+t;
         jTextField1.setText(pret);
-        t=t+15;
+        t=Total.tot(t);
         total=t;
         pret="";
         pret=pret+t;
