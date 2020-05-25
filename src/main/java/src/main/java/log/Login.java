@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import main.java.ManagerPage.Manager;
 
 /**
  *
@@ -41,7 +42,8 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMinimumSize(new java.awt.Dimension(800, 400));
+        getContentPane().setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(151, 184, 216));
         jButton1.setText("Log in");
@@ -50,29 +52,36 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 130, -1));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(330, 320, 130, 29);
 
         jPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 190, -1));
-        getContentPane().add(jText, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 190, -1));
+        getContentPane().add(jPassword);
+        jPassword.setBounds(330, 220, 190, 26);
+        getContentPane().add(jText);
+        jText.setBounds(330, 180, 190, 26);
 
         jLabel1.setText("Username");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 80, 40));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(240, 170, 80, 40);
 
         jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 70, 40));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(240, 210, 70, 40);
 
         jLabel4.setFont(new java.awt.Font("Luminari", 0, 36)); // NOI18N
         jLabel4.setText("Pharmacy Online Ordering Application");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 700, 60));
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(80, 0, 700, 60);
 
         jLabel3.setIcon(new javax.swing.ImageIcon("/Users/mariabrad/Anul II/SEM II/FIS/Log/Log/Images/colorful-capsule-pills-on-white-background-pharmaceutical-artinun-prekmoung.jpg")); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(800, 400));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 800, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -92,6 +101,9 @@ public class Login extends javax.swing.JFrame {
          
                 String role=result.getString("role");
                  if(role.equals("a")){
+                     Manager hme=new Manager();
+                     this.setVisible(false);
+                     hme.setVisible(true);
                      
                  }
                  else{
