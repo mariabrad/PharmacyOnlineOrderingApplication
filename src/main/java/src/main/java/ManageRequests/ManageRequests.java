@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ManagerPage;
+package main.java.ManageRequests;
 
+import main.java.ManagerPage.Manager;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import main.java.ManageProducts.ManageProducts;
 
 /**
  *
@@ -37,35 +39,34 @@ Connection con1;
          private void table_update()
          {
              int c;
-                 try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/farmacie1","root","M!lkdrink");
-            insertie=con1.prepareStatement("select * from orders");
-            ResultSet rs=insertie.executeQuery();
-          ResultSetMetaData Rss=rs.getMetaData();
-          c=Rss.getColumnCount();
-          DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();
-          Df.setRowCount(0);
-          while(rs.next())
-          {
-              Vector v2=new Vector();
-              for (int a=1;a<=c;a++)
-              {
-                  v2.add(rs.getString("id"));
-                  v2.add(rs.getString("name"));
-                  v2.add(rs.getString("status"));
-                  v2.add(rs.getString("sum"));
-               
-              }
-              Df.addRow(v2);
-          }
-           
-        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con1 =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
+            insertie= con1.prepareStatement("select * from Credentials.orders");
+            ResultSet rs= insertie.executeQuery();
+            ResultSetMetaData Rss= rs.getMetaData();
+            c= Rss.getColumnCount();
+            
+            DefaultTableModel Df=(DefaultTableModel) jTable1.getModel();
+            Df.setRowCount(0);
+            
+            while (rs.next()){
+                Vector v2= new Vector();
+                for(int a=1;a<=c;a++){
+                    v2.add(rs.getString("id"));
+                    v2.add(rs.getString("name"));
+                    v2.add(rs.getString("status"));
+                    v2.add(rs.getString("sum"));
+                }
+                Df.addRow(v2);
+            }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);
+      
         } catch (SQLException ex) {
-            Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);
         }
+
                 
          }
     @SuppressWarnings("unchecked")
@@ -293,7 +294,7 @@ Connection con1;
           
              
                   Class.forName("com.mysql.jdbc.Driver");
-            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/farmacie1","root","M!lkdrink");
+            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
             insertie=con1.prepareStatement("update orders set name=?,status=?,sum=? where id=?");
             
   
