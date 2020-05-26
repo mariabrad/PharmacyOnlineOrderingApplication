@@ -19,10 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import main.java.ManageProducts.ManageProducts;
 
-/**
- *
- * @author Maria
- */
+
 public class ManageRequests extends javax.swing.JFrame {
 
     /**
