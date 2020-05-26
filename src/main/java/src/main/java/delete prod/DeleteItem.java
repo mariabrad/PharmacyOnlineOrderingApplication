@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ManagerPage;
+package main.java.DeleteItem;
 
+import main.java.ManagerPage.Manager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -289,21 +290,21 @@ public class DeleteItem extends javax.swing.JFrame {
     Connection con1;
         PreparedStatement insertie;
        private void table_update()
-        {   int c;
-                 try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/farmacie1","root","M!lkdrink");
-            insertie=con1.prepareStatement("select * from products");
-            ResultSet rs=insertie.executeQuery();
-          ResultSetMetaData Rss=rs.getMetaData();
-          c=Rss.getColumnCount();
-          DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();
-          Df.setRowCount(0);
-          while(rs.next())
-          {
-              Vector v2=new Vector();
-              for (int a=1;a<=c;a++)
-              {
+        {      int c;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con1 =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
+            PreparedStatement insert= con1.prepareStatement("select * from Credentials.produse");
+            ResultSet rs= insert.executeQuery();
+            ResultSetMetaData Rss= rs.getMetaData();
+            c= Rss.getColumnCount();
+            
+            DefaultTableModel Df=(DefaultTableModel) jTable1.getModel();
+            Df.setRowCount(0);
+            
+            while (rs.next()){
+                Vector v2= new Vector();
+                for(int a=1;a<=c;a++){
                   v2.add(rs.getString("id"));
                   v2.add(rs.getString("nume"));
                   v2.add(rs.getString("descriere"));
@@ -311,17 +312,17 @@ public class DeleteItem extends javax.swing.JFrame {
                   v2.add(rs.getString("prescriptie"));
                   v2.add(rs.getString("ingredient"));
                   v2.add(rs.getString("pret"));
-                  v2.add(rs.getString("cantitate"));
-              }
-              Df.addRow(v2);
-          }
-           
-        
+          
+                }
+                Df.addRow(v2);
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
+      
         } catch (SQLException ex) {
             Logger.getLogger(DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
         }
+
                 }
     private void txtnumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeActionPerformed
         // TODO add your handling code here:
@@ -337,8 +338,8 @@ public class DeleteItem extends javax.swing.JFrame {
             {
 
                 Class.forName("com.mysql.jdbc.Driver");
-                con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/farmacie1","root","M!lkdrink");
-                insertie=con1.prepareStatement("delete from products where id=?");
+                con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+                insertie=con1.prepareStatement("delete from produse where id=?");
 
                 insertie.setInt(1,id);
                 insertie.executeUpdate();
