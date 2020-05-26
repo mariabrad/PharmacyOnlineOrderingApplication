@@ -18,10 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Maria
- */
+
 public class CheckStock extends javax.swing.JFrame {
 
     /**
