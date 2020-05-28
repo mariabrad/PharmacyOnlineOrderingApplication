@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.CheckStock;
+package  src.main.java.CheckStock;
 
 import main.java.ManageProducts.ManageProducts;
 import main.java.ManagerPage.Manager;
@@ -18,10 +18,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Maria
- */
 public class CheckStock extends javax.swing.JFrame {
 
     /**
@@ -34,7 +30,7 @@ public class CheckStock extends javax.swing.JFrame {
         
     }
 
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -134,10 +130,10 @@ Connection con1;
                 Df.addRow(v2);
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CheckStock.class.getName()).log(Level.SEVERE, null, ex);
       
         } catch (SQLException ex) {
-            Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CheckStock.class.getName()).log(Level.SEVERE, null, ex);
         }
 
                 
