@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package src.main.java.order;
-
+import src.main.java.products.*;
 import java.lang.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,8 +17,8 @@ import java.sql.ResultSetMetaData;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import main.java.log.Home;
-import products.Cart;
+import src.main.java.log.Home;
+
 
 /**
  *
@@ -53,33 +53,31 @@ public class Orders extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 400));
         setMinimumSize(new java.awt.Dimension(800, 400));
-        setPreferredSize(new java.awt.Dimension(800, 400));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Savoye LET", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/mariabrad/Anul II/SEM II/FIS/Log/Log/Images/add_buy_cart_ecommerce_online_shopping_store-512.png")); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 22)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(Home.class.getResource("/add_buy_cart_ecommerce_online_shopping_store-512.png"))); // NOI18N
         jLabel1.setText("My Orders");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(337, 41, 144, 42);
+        jLabel1.setBounds(337, 41, 150, 42);
 
         jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jTable1.setFont(new java.awt.Font("Sathu", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Nume", "Status"
+                "Id", "Nume", "Status", "Sum"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -96,15 +94,15 @@ public class Orders extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(320, 116, 415, 266);
 
-        jLabel2.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel2.setText("Nume");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 182, 36, 29);
+        jLabel2.setBounds(30, 182, 50, 29);
 
-        jLabel3.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel3.setText("Status");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 234, 39, 29);
+        jLabel3.setBounds(30, 234, 60, 29);
 
         txtnume.setFont(new java.awt.Font("American Typewriter", 0, 18)); // NOI18N
         txtnume.addActionListener(new java.awt.event.ActionListener() {
@@ -133,12 +131,12 @@ public class Orders extends javax.swing.JFrame {
         getContentPane().add(txtid);
         txtid.setBounds(144, 127, 170, 32);
 
-        jLabel4.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel4.setText("Id");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(30, 133, 37, 26);
 
-        jButton1.setFont(new java.awt.Font("Savoye LET", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Vivaldi", 0, 15)); // NOI18N
         jButton1.setText("Done");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,8 +146,7 @@ public class Orders extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(22, 5, 75, 30);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/mariabrad/Anul II/SEM II/FIS/Log/Log/Images/back2.jpg")); // NOI18N
-        jLabel5.setText("jLabel5");
+        jLabel5.setIcon(new javax.swing.ImageIcon(Orders.class.getResource("/back2.jpg"))); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 810, 410);
 
@@ -180,7 +177,7 @@ public class Orders extends javax.swing.JFrame {
                     v2.add(rs.getString("id"));
                     v2.add(rs.getString("name"));
                     v2.add(rs.getString("status"));
-                  
+                    v2.add(rs.getFloat("sum"));
                 }
                 Df.addRow(v2);
             }
