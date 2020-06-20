@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.products;
+package src.main.java.products;
 import main.java.products.OrderNumber;
 import javax.swing.JOptionPane;
-import main.java.log.Home;
-import static products.Cart.c;
-import products.Product;
+import src.main.java.log.Home;
+import static src.main.products.Cart.c;
+import src.main.products.Product;
 import java.lang.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
