@@ -5,12 +5,12 @@
  */
 package ManagerPage;
 
-import CheckStock.CheckStock;
-import DeleteItem.DeleteItem;
-import ManageProducts.ManageProducts;
-import ManageRequests.ManageRequests;
-import SearchItem.SearchItem;
-import ViewOrders.ViewOrders;
+import src.main.java.CheckStock.CheckStock;
+import src.main.java.DeleteItem.DeleteItem;
+import src.main.java.ManageProducts.ManageProducts;
+import src.main.java.ManageRequests.ManageRequests;
+import src.main.java.SearchItem.SearchItem;
+import src.main.java.ViewOrders.ViewOrders;
 
 /**
  *
