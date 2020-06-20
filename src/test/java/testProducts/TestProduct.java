@@ -15,7 +15,7 @@ import src.main.java.products.Product;
  *
  * @author mariabrad
  */
-public class TestProduct {
+public class TestProduct extends TestCase{
     
     Product p;
     String id;

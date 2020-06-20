@@ -3,44 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testOrders;
+package testLogin;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-import src.main.java.order.Orders;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import testOrders.TestOrdersConnection;
 
 /**
  *
  * @author mariabrad
  */
-public class testOrdersConnection {
+public class TestLogin {
     
-
-    @Test
+  @Test
     public void testConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con1 =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
-            assertTrue(con1.prepareStatement("select * from Credentials.orders").executeQuery().next());
+            assertTrue(con1.prepareStatement("select * from Credentials.tabel").executeQuery().next());
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
       
         } catch (SQLException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @Test
@@ -49,15 +43,15 @@ public class testOrdersConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driverrr");
             Connection con1 =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
-            assertTrue(con1.prepareStatement("select * from Credentials.orders").executeQuery().next());
+            assertTrue(con1.prepareStatement("select * from Credentials.tabel").executeQuery().next());
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+
             thrown=true;
       
         } catch (SQLException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+
         }
         assertTrue(thrown);
     }
