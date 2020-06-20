@@ -45,7 +45,8 @@ public class testRead extends TestCase {
                   v2.add(rs.getString("pret"));
                   v2.add(rs.getString("cantitate"));
               
-             int ok=0;
+             int ok;
+			 ok=0;
              if (v2!=null)
              {
                  ok=1;
