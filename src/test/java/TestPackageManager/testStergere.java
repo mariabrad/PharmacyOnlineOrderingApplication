@@ -57,7 +57,7 @@ public class testStergere {
 				assertNotEquals(before,numRowsChanged);
 			
             } catch (SQLException ex) {
-                Logger.getLogger(src.main.java.DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(testStergere.class.getName()).log(Level.SEVERE, null, ex);
             }
                       
 	}

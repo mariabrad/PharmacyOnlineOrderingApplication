@@ -54,7 +54,7 @@ public class testEditeaza {
 				
 				assertEquals("dureri de cap",g);
             } catch (SQLException ex) {
-                Logger.getLogger(src.main.java.ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(testEditeaza.class.getName()).log(Level.SEVERE, null, ex);
             }
                       
 	}
