@@ -1,7 +1,7 @@
 
 package src.main.java.ManageRequests;
 
-import ManagerPage.Manager;
+import src.main.java.ManagerPage.Manager;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
