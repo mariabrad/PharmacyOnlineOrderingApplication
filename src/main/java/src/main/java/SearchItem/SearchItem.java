@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package main.java.SearchItem;
 
-import main.java.ManageProducts.ManageProducts;
+package SearchItem;
+
+import ManagerPage.Manager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,12 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import main.java.ManagerPage.Manager;
 
-/**
- *
- * @author Maria
- */
 public class SearchItem extends javax.swing.JFrame {
 
     /**
@@ -45,11 +36,15 @@ public class SearchItem extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         baracautare = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 400));
+        getContentPane().setLayout(null);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,13 +74,21 @@ public class SearchItem extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setText("Search item:");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(360, 30, 359, 280);
 
+        baracautare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                baracautareActionPerformed(evt);
+            }
+        });
         baracautare.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 baracautareKeyReleased(evt);
             }
         });
+        getContentPane().add(baracautare);
+        baracautare.setBounds(100, 190, 231, 20);
 
         jButton1.setText("Done");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,62 +96,44 @@ public class SearchItem extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(190, 280, 100, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(baracautare, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(baracautare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(48, 48, 48))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e881bba87734db35285d04ea1ddec35f - Copy.jpg"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 140, 150);
+
+        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        jLabel1.setText("Search item");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(170, 90, 102, 31);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.jpg"))); // NOI18N
+        jLabel2.setText(" ");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1160, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 Connection con1;
          PreparedStatement insertie;
          private void table_update()
-         {   int c;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con1 =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
-            PreparedStatement insert= con1.prepareStatement("select * from Credentials.produse");
-            ResultSet rs= insert.executeQuery();
-            ResultSetMetaData Rss= rs.getMetaData();
-            c= Rss.getColumnCount();
-            
-            DefaultTableModel Df=(DefaultTableModel) jTable1.getModel();
-            Df.setRowCount(0);
-            
-            while (rs.next()){
-                Vector v2= new Vector();
-                for(int a=1;a<=c;a++){
+         {
+             int c;
+                 try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+            insertie=con1.prepareStatement("select * from produse");
+            ResultSet rs=insertie.executeQuery();
+          ResultSetMetaData Rss=rs.getMetaData();
+          c=Rss.getColumnCount();
+          DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();
+          Df.setRowCount(0);
+          while(rs.next())
+          {
+              Vector v2=new Vector();
+              for (int a=1;a<=c;a++)
+              {
                   v2.add(rs.getString("id"));
                   v2.add(rs.getString("nume"));
                   v2.add(rs.getString("descriere"));
@@ -156,17 +141,18 @@ Connection con1;
                   v2.add(rs.getString("prescriptie"));
                   v2.add(rs.getString("ingredient"));
                   v2.add(rs.getString("pret"));
-          
-                }
-                Df.addRow(v2);
-            }
+                  v2.add(rs.getString("cantitate"));
+              }
+              Df.addRow(v2);
+          }
+           
+        
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SearchItem.class.getName()).log(Level.SEVERE, null, ex);
-      
         } catch (SQLException ex) {
             Logger.getLogger(SearchItem.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+                
          }
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -190,11 +176,16 @@ DefaultTableModel tabel=(DefaultTableModel)jTable1.getModel();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          Manager m=new Manager();
+          Manager m;
+        m = new Manager();
       this.setVisible(false);
         m.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void baracautareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baracautareActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_baracautareActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,6 +226,8 @@ DefaultTableModel tabel=(DefaultTableModel)jTable1.getModel();
     private javax.swing.JTextField baracautare;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
