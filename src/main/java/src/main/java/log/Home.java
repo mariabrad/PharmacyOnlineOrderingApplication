@@ -1,10 +1,10 @@
-package main.java.log;
+package src.main.java.log;
 
-import main.java.products.Checkout;
-import main.java.order.Orders;
+import src.main.java.products.Checkout;
+import src.main.java.order.Orders;
 import products.Cart;
-import products.Product;
-import main.java.products.Search;
+import src.products.Product;
+import src.main.java.products.Search;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import static products.Cart.c;
