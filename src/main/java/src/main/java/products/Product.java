@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package products;
+package src.main.java.products;
 
 /**
  *
@@ -26,6 +26,7 @@ public class Product{
       desc=c;
       expirare=d;
       prescriptie=e;
+      ingr=f;
       pret=g;
     }
     
