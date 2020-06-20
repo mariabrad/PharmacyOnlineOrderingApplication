@@ -1,11 +1,15 @@
-package log;
+package src.main.java.log;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashPassword {
-
-        public static String encrypt(String password){
+    private String password;
+    public HashPassword(String p){
+        password=p;
+    }
+        
+    public String encrypt(){
 
             String generatedPassword ;
 
