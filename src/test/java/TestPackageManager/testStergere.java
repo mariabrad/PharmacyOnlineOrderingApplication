@@ -1,8 +1,7 @@
 
-package TestPackage;
+package TestPackageManager;
 
-import DeleteItem.DeleteItem;
-import ManageProducts.ManageProducts;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -58,7 +57,7 @@ public class testStergere {
 				assertNotEquals(before,numRowsChanged);
 			
             } catch (SQLException ex) {
-                Logger.getLogger(DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(src.main.java.DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
             }
                       
 	}
