@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.ManageRequests;
+package ManageRequests;
 
-import main.java.ManagerPage.Manager;
+import ManagerPage.Manager;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,9 +17,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import main.java.ManageProducts.ManageProducts;
 
-
+/**
+ *
+ * @author Maria
+ */
 public class ManageRequests extends javax.swing.JFrame {
 
     /**
@@ -36,34 +38,35 @@ Connection con1;
          private void table_update()
          {
              int c;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con1 =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
-            insertie= con1.prepareStatement("select * from Credentials.orders");
-            ResultSet rs= insertie.executeQuery();
-            ResultSetMetaData Rss= rs.getMetaData();
-            c= Rss.getColumnCount();
-            
-            DefaultTableModel Df=(DefaultTableModel) jTable1.getModel();
-            Df.setRowCount(0);
-            
-            while (rs.next()){
-                Vector v2= new Vector();
-                for(int a=1;a<=c;a++){
-                    v2.add(rs.getString("id"));
-                    v2.add(rs.getString("name"));
-                    v2.add(rs.getString("status"));
-                    v2.add(rs.getString("sum"));
-                }
-                Df.addRow(v2);
-            }
+                 try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+            insertie=con1.prepareStatement("select * from orders");
+            ResultSet rs=insertie.executeQuery();
+          ResultSetMetaData Rss=rs.getMetaData();
+          c=Rss.getColumnCount();
+          DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();
+          Df.setRowCount(0);
+          while(rs.next())
+          {
+              Vector v2=new Vector();
+              for (int a=1;a<=c;a++)
+              {
+                  v2.add(rs.getString("id"));
+                  v2.add(rs.getString("name"));
+                  v2.add(rs.getString("status"));
+                  v2.add(rs.getFloat("sum"));
+               
+              }
+              Df.addRow(v2);
+          }
+           
+        
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);
-      
         } catch (SQLException ex) {
             Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);
         }
-
                 
          }
     @SuppressWarnings("unchecked")
@@ -84,13 +87,20 @@ Connection con1;
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 400));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 18)); // NOI18N
         jLabel1.setText("Manage Requests");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(218, 11, 183, 42);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e881bba87734db35285d04ea1ddec35f - Copy.jpg"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(20, 11, 140, 150);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,7 +111,7 @@ Connection con1;
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -114,6 +124,9 @@ Connection con1;
             }
         });
         jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(419, 11, 320, 290);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Register", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 204, 153))); // NOI18N
 
@@ -154,19 +167,17 @@ Connection con1;
                     .addComponent(jLabel5)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtsum, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(txtstatus))
-                        .addContainerGap())
-                    .addComponent(txtname)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addComponent(txtstatus)
+                    .addComponent(txtsum))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jButton3)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1)
-                .addGap(0, 75, Short.MAX_VALUE))
+                .addGap(0, 28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,11 +194,15 @@ Connection con1;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtsum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton1)))
         );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(190, 80, 230, 220);
+        jPanel1.getAccessibleContext().setAccessibleName("Requests");
 
         jButton2.setText("Done");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -195,50 +210,13 @@ Connection con1;
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(30, 280, 104, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(58, 58, 58)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanel1.getAccessibleContext().setAccessibleName("Requests");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.jpg"))); // NOI18N
+        jLabel7.setText(" ");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(-10, 0, 1160, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -254,7 +232,7 @@ Connection con1;
           
              
                   Class.forName("com.mysql.jdbc.Driver");
-            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/farmacie1","root","M!lkdrink");
+            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
             insertie=con1.prepareStatement("update orders set name=?,status=?,sum=? where id=?");
             
   
@@ -384,6 +362,7 @@ Connection con1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
