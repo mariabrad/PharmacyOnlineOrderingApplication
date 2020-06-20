@@ -55,7 +55,7 @@ public class testRejected {
 				
 				assertEquals("Approved",g);
             } catch (SQLException ex) {
-                Logger.getLogger(src.main.java.DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(testRejected.class.getName()).log(Level.SEVERE, null, ex);
             }
                       
 	}
