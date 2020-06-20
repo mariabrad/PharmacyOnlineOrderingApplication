@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ManageRequests;
 
-import ManagerPage.Manager;
+package src.main.java.ManageRequests;
+
+import src.main.java.ManagerPage.Manager;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
