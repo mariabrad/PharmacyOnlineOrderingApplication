@@ -14,13 +14,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import testOrders.testOrdersConnection;
+import testOrders.TestOrdersConnection;
 
 /**
  *
  * @author mariabrad
  */
-public class testProducts {
+public class TestProducts {
     
  @Test
     public void testConnection(){
@@ -31,10 +31,10 @@ public class testProducts {
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testProducts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestProducts.class.getName()).log(Level.SEVERE, null, ex);
       
         } catch (SQLException ex) {
-            Logger.getLogger(testProducts.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestProducts.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @Test
@@ -48,12 +48,12 @@ public class testProducts {
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+
             thrown=true;
             
       
         } catch (SQLException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+
         }
         assertTrue(thrown);
     }
