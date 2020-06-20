@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package src.main.java.products;
-import main.java.products.OrderNumber;
-import main.java.products.Total;
+import src.main.java.products.OrderNumber;
+import src.main.java.products.Total;
 import javax.swing.JOptionPane;
 import src.main.java.log.Home;
 import static src.main.java.products.Cart.c;
