@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.ViewOrders;
+package ViewOrders;
 
+import ManagerPage.Manager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,8 +16,6 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import main.java.ManageProducts.ManageProducts;
-import main.java.ManagerPage.Manager;
 
 /**
  *
@@ -46,13 +45,20 @@ public class ViewOrders extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 400));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 18)); // NOI18N
         jLabel1.setText("View Orders");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(208, 11, 183, 42);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e881bba87734db35285d04ea1ddec35f - Copy.jpg"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(10, 11, 140, 150);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,7 +69,7 @@ public class ViewOrders extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -77,47 +83,22 @@ public class ViewOrders extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(320, 10, 452, 270);
+
         jButton1.setText("Done");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(80, 250, 140, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(14, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(55, 55, 55))))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.jpg"))); // NOI18N
+        jLabel2.setText(" ");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1160, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,34 +107,35 @@ Connection con1;
          private void table_update()
          {
              int c;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con1 =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
-            PreparedStatement insert= con1.prepareStatement("select * from Credentials.orders");
-            ResultSet rs= insert.executeQuery();
-            ResultSetMetaData Rss= rs.getMetaData();
-            c= Rss.getColumnCount();
-            
-            DefaultTableModel Df=(DefaultTableModel) jTable1.getModel();
-            Df.setRowCount(0);
-            
-            while (rs.next()){
-                Vector v2= new Vector();
-                for(int a=1;a<=c;a++){
-                    v2.add(rs.getString("id"));
-                    v2.add(rs.getString("name"));
-                    v2.add(rs.getString("status"));
-                  v2.add(rs.getString("sum"));
-                }
-                Df.addRow(v2);
-            }
+                 try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+            insertie=con1.prepareStatement("select * from orders");
+            ResultSet rs=insertie.executeQuery();
+          ResultSetMetaData Rss=rs.getMetaData();
+          c=Rss.getColumnCount();
+          DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();
+          Df.setRowCount(0);
+          while(rs.next())
+          {
+              Vector v2=new Vector();
+              for (int a=1;a<=c;a++)
+              {
+                  v2.add(rs.getString("id"));
+                  v2.add(rs.getString("name"));
+                  v2.add(rs.getString("status"));
+                  v2.add(rs.getFloat("sum"));
+               
+              }
+              Df.addRow(v2);
+          }
+           
+        
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ViewOrders.class.getName()).log(Level.SEVERE, null, ex);
-      
         } catch (SQLException ex) {
             Logger.getLogger(ViewOrders.class.getName()).log(Level.SEVERE, null, ex);
         }
-
                 
          }
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -206,6 +188,7 @@ Connection con1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
