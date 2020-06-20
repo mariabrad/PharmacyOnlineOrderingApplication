@@ -10,16 +10,11 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 import junit.framework.*;
 
-public class testRead extends TestCase {
+public class TestRead extends TestCase {
     
     @Test
     public void testDelete(){
@@ -45,8 +40,7 @@ public class testRead extends TestCase {
                   v2.add(rs.getString("pret"));
                   v2.add(rs.getString("cantitate"));
               
-             int ok;
-			 ok=0;
+             int ok=0;
              if (v2!=null)
              {
                  ok=1;
@@ -56,10 +50,10 @@ public class testRead extends TestCase {
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testRead.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestRead.class.getName()).log(Level.SEVERE, null, ex);
       
         } catch (SQLException ex) {
-            Logger.getLogger(testRead.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestRead.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -2,7 +2,6 @@
 package TestOrdersManager;
 
 
-import TestPackageManager.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,16 +11,11 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 import junit.framework.*;
 
-public class testReadOrders extends TestCase {
+public class TestReadOrders extends TestCase {
     
     @Test
     public void testDelete(){
@@ -51,10 +45,10 @@ public class testReadOrders extends TestCase {
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testReadOrders.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestReadOrders.class.getName()).log(Level.SEVERE, null, ex);
       
         } catch (SQLException ex) {
-            Logger.getLogger(testReadOrders.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestReadOrders.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

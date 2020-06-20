@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package TestPackageManager;
 
 
@@ -19,7 +23,7 @@ import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class testEditeaza {
+public class TestApproved {
     
    private static Connection con1;
 	@BeforeClass
@@ -42,19 +46,20 @@ public class testEditeaza {
 			try {
 				
 	   con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
-          PreparedStatement insertie=con1.prepareStatement("update produse set descriere=? where id=?");
-         insertie.setString (1, "dureri de cap");
-         insertie.setInt(2, 7);
+          PreparedStatement insertie=con1.prepareStatement("update orders set status=? where id=?");
+         insertie.setString (1, "Approved");
+         insertie.setInt(2, 1);
       insertie.executeUpdate();
+       Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
           ResultSet rs;
-      rs = insertie.executeQuery("SELECT descriere FROM produse WHERE id=7");
+      rs = insertie.executeQuery("SELECT status FROM orders WHERE id=1");
       rs.next(); 
-      String g=rs.getString("descriere");
+      String g=rs.getString("status");
 
 				
-				assertEquals("dureri de cap",g);
+				assertEquals("Approved",g);
             } catch (SQLException ex) {
-                Logger.getLogger(testEditeaza.class.getName()).log(Level.SEVERE, null, ex);
+				ex.printStackTrace();
             }
                       
 	}

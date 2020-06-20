@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package TestPackageManager;
 
 
@@ -7,9 +11,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,7 +24,7 @@ import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class testApproved {
+public class TestStergere  {
     
    private static Connection con1;
 	@BeforeClass
@@ -35,27 +40,30 @@ public class testApproved {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		con1.close();
-	} 
-	
-	@Test
-	public void approve() {
-			try {
-				
-	   con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
-          PreparedStatement insertie=con1.prepareStatement("update orders set status=? where id=?");
-         insertie.setString (1, "Approved");
-         insertie.setInt(2, 1);
-      insertie.executeUpdate();
-       Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
-          ResultSet rs;
-      rs = insertie.executeQuery("SELECT status FROM orders WHERE id=1");
-      rs.next(); 
-      String g=rs.getString("status");
+	}
 
+	@Test
+	public void addUserTest() {
+			try {
+				//DeleteItem test=new DeleteItem();
+				int before=0,after=0;
+			   con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+          PreparedStatement insertie=con1.prepareStatement("select * from produse");
+				ResultSet rs = insertie.executeQuery();
+				while(rs.next())
+					before++;
+                  
+	    PreparedStatement insertie2=con1.prepareStatement("delete from produse where id=1");
+          
+
+            
+           int numRowsChanged= insertie2.executeUpdate();
+			
 				
-				assertEquals("Approved",g);
+				assertNotEquals(before,numRowsChanged);
+			
             } catch (SQLException ex) {
-                Logger.getLogger(testApproved.class.getName()).log(Level.SEVERE, null, ex);
+				ex.printStackTrace();;
             }
                       
 	}
