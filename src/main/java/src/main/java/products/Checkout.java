@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package src.main.java.products;
-import main.java.products.OrderNumber;
-import main.java.products.Total;
+import src.main.java.products.OrderNumber;
+import src.main.java.products.Total;
 import javax.swing.JOptionPane;
 import src.main.java.log.Home;
-import static src.main.products.Cart.c;
-import src.main.products.Product;
+import static src.main.java.products.Cart.c;
+import src.main.java.products.Product;
 import java.lang.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,6 +24,7 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.*; 
+import static src.main.java.products.Cart.c;
 
 /**
  *
@@ -50,10 +51,10 @@ public class Checkout extends javax.swing.JFrame {
         }
         pret=pret+t;
         jTextField1.setText(pret);
-        t=Total.tot(t);
-        total=t;
+        Total a= new Total(t);
+        total=a.tot();
         pret="";
-        pret=pret+t;
+        pret=pret+total;
        jTextField2.setText(pret);
     }
 
@@ -84,17 +85,17 @@ public class Checkout extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(278, 102, 222, 55);
 
-        jLabel1.setFont(new java.awt.Font("Savoye LET", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 20)); // NOI18N
         jLabel1.setText("Total");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(167, 107, 105, 55);
 
-        jLabel2.setFont(new java.awt.Font("Savoye LET", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Vivaldi", 0, 26)); // NOI18N
         jLabel2.setText("Checkout");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(319, 6, 98, 46);
+        jLabel2.setBounds(319, 6, 150, 46);
 
-        jButton1.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jButton1.setText("Place your Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +103,7 @@ public class Checkout extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(278, 318, 146, 47);
+        jButton1.setBounds(278, 318, 170, 47);
 
         jButton2.setText("Done");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +128,7 @@ public class Checkout extends javax.swing.JFrame {
         getContentPane().add(jTextField2);
         jTextField2.setBounds(278, 197, 222, 59);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/mariabrad/Anul II/SEM II/FIS/Log/Log/Images/back2.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("src/main/resources/back2.jpg")); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 810, 400);
 
@@ -154,13 +155,14 @@ public class Checkout extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con1 =DriverManager.getConnection("jdbc:mysql://localhost/Cabinet?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
             PreparedStatement insert= con1.prepareStatement("insert into Credentials.orders(name,status,sum)values(?,?,?)");
-            String o="order"+OrderNumber.getNewAccountNumber() ;
+            OrderNumber order=new OrderNumber();
+            String o="order"+order.getNewAccountNumber() ;
             insert.setString(1,o);
             insert.setString(2,"Pending approval");
             insert.setFloat(3,total);
             insert.executeUpdate();
             JOptionPane.showMessageDialog(this,"The order was placed!");
-             c.produse=new ArrayList<Product>();
+            c.produse=new ArrayList<Product>();
              Home orrd=new Home();
              this.setVisible(false);
              orrd.setVisible(true);

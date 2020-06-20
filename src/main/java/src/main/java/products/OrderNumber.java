@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.products;
+package src.main.java.products;
 
 /**
  *
@@ -12,7 +12,7 @@ package main.java.products;
 public class OrderNumber {
 
 
-    static int getNewAccountNumber() {
+    public int getNewAccountNumber() {
        int random = (int)(Math.random() * 50 + 1);
        return random;
     }
