@@ -1,8 +1,7 @@
 
-package TestPackage;
+package TestPackageManager;
 
-import DeleteItem.DeleteItem;
-import ManageProducts.ManageProducts;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -55,7 +54,7 @@ public class testEditeaza {
 				
 				assertEquals("dureri de cap",g);
             } catch (SQLException ex) {
-                Logger.getLogger(ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(src.main.java.ManageProducts.class.getName()).log(Level.SEVERE, null, ex);
             }
                       
 	}

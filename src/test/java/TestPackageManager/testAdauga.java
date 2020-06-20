@@ -1,5 +1,5 @@
 
-package TestPackage;
+package TestPackageManager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import ManageProducts.ManageProducts;
+import src.main.java.ManageProducts.ManageProducts;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
