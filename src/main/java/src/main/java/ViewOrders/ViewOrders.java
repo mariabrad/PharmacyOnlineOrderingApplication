@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ViewOrders;
 
-import ManagerPage.Manager;
+package src.main.java.ViewOrders;
+
+import src.main.java.ManagerPage.Manager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
