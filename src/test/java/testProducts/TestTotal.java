@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import junit.framework.*;
-import main.java.products.Total;
+import src.main.java.products.Total;
 
 public class TestTotal extends TestCase{
 

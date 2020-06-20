@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import junit.framework.*;
-import main.java.products.OrderNumber;
+import src.main.java.products.OrderNumber;
 
 /**
  *
