@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.products;
-import products.Product;
+package src.main.java.products;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,9 +13,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import main.java.log.Home;
-import main.java.log.Login;
-import static products.Cart.c;
+import src.main.java.log.*;
+
+import static src.main.java.products.Cart.c;
 
 /**
  *
@@ -32,13 +32,8 @@ public class Prod extends javax.swing.JFrame {
         
         initComponents();
            try {
-             
-             Class.forName("com.mysql.cj.jdbc.Driver");
-             Connection connection =DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
-             PreparedStatement ps = connection.prepareStatement("SELECT * FROM `produse` WHERE `nume` = ? OR `ingredient` = ? ");
-             ps.setString(1,produs);
-             ps.setString(2,produs);
-             ResultSet result = ps.executeQuery();
+             ProductTable table=new ProductTable();
+             ResultSet result = table.create(p);
              if(result.next()){
                  Product ex=new Product(result.getString("id"),p,result.getString("descriere"),result.getString("expirare"),result.getString("prescriptie"),result.getString("ingredient"),result.getString("pret"));
                   txtdesc.setText(result.getString("descriere"));
@@ -108,20 +103,20 @@ public class Prod extends javax.swing.JFrame {
         getContentPane().add(txtpr);
         txtpr.setBounds(494, 162, 187, 26);
 
-        jLabel3.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel3.setText("Descriere");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(25, 124, 59, 29);
+        jLabel3.setBounds(25, 124, 90, 29);
 
-        jLabel1.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel1.setText("Expirare");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(390, 130, 70, 29);
 
-        jLabel2.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel2.setText("Prescriptie");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(392, 167, 80, 29);
+        jLabel2.setBounds(392, 167, 90, 29);
 
         txtingr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,19 +126,19 @@ public class Prod extends javax.swing.JFrame {
         getContentPane().add(txtingr);
         txtingr.setBounds(494, 194, 187, 26);
 
-        jLabel4.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel4.setText("Ingredient");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(390, 200, 90, 29);
         getContentPane().add(txtpret);
         txtpret.setBounds(494, 226, 187, 26);
 
-        jLabel5.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jLabel5.setText("Pret");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(396, 231, 80, 29);
 
-        jButton1.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Vivaldi", 0, 14)); // NOI18N
         jButton1.setText("Done");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +148,7 @@ public class Prod extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(6, 6, 82, 37);
 
-        jButton2.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
         jButton2.setText("Add to cart");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,8 +158,8 @@ public class Prod extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(494, 315, 118, 37);
 
-        jLabel6.setFont(new java.awt.Font("Savoye LET", 0, 24)); // NOI18N
-        jLabel6.setIcon(new javax.swing.ImageIcon("/Users/mariabrad/Anul II/SEM II/FIS/Log/Log/Images/back2.jpg")); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(Prod.class.getResource("/back2.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 810, 410);
 
