@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.java.ManagerPage;
+package ManagerPage;
 
-import main.java.ManageRequests.ManageRequests;
-import main.java.SearchItem.SearchItem;
-import main.java.ViewOrders.ViewOrders;
-import main.java.CheckStock.CheckStock;
-import main.java.DeleteItem.DeleteItem;
-import main.java.ManageProducts.ManageProducts;
+import CheckStock.CheckStock;
+import DeleteItem.DeleteItem;
+import ManageProducts.ManageProducts;
+import ManageRequests.ManageRequests;
+import SearchItem.SearchItem;
+import ViewOrders.ViewOrders;
 
 /**
  *
@@ -44,15 +44,25 @@ public class Manager extends javax.swing.JFrame {
         searchitem = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         checkstock = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e881bba87734db35285d04ea1ddec35f - Copy.jpg"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 400));
+        setMinimumSize(new java.awt.Dimension(800, 400));
+        getContentPane().setLayout(null);
+
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
         jLabel1.setText("Manager's Page");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(226, 25, 197, 70);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e881bba87734db35285d04ea1ddec35f - Copy.jpg"))); // NOI18N
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(0, 0, 140, 150);
 
         managerequests.setText("Manage requests");
         managerequests.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +70,8 @@ public class Manager extends javax.swing.JFrame {
                 managerequestsActionPerformed(evt);
             }
         });
+        jPanel1.add(managerequests);
+        managerequests.setBounds(542, 239, 174, 23);
 
         manageproducts.setText("Manage products");
         manageproducts.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +79,8 @@ public class Manager extends javax.swing.JFrame {
                 manageproductsActionPerformed(evt);
             }
         });
+        jPanel1.add(manageproducts);
+        manageproducts.setBounds(542, 168, 174, 23);
 
         vieworders.setText("View orders");
         vieworders.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +88,8 @@ public class Manager extends javax.swing.JFrame {
                 viewordersActionPerformed(evt);
             }
         });
+        jPanel1.add(vieworders);
+        vieworders.setBounds(213, 168, 174, 23);
 
         searchitem.setText("Search item");
         searchitem.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +97,8 @@ public class Manager extends javax.swing.JFrame {
                 searchitemActionPerformed(evt);
             }
         });
+        jPanel1.add(searchitem);
+        searchitem.setBounds(213, 239, 174, 23);
 
         delete.setText("Delete product");
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +106,8 @@ public class Manager extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
+        jPanel1.add(delete);
+        delete.setBounds(213, 296, 174, 23);
 
         checkstock.setText("Check stock");
         checkstock.addActionListener(new java.awt.event.ActionListener() {
@@ -95,64 +115,16 @@ public class Manager extends javax.swing.JFrame {
                 checkstockActionPerformed(evt);
             }
         });
+        jPanel1.add(checkstock);
+        checkstock.setBounds(542, 296, 174, 23);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(searchitem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(vieworders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(manageproducts, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(managerequests, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(checkstock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(85, 85, 85))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vieworders)
-                    .addComponent(manageproducts))
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchitem)
-                    .addComponent(managerequests))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(delete)
-                    .addComponent(checkstock))
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back2.jpg"))); // NOI18N
+        jLabel2.setText(" ");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 1160, 450);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 801, 406);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,6 +209,7 @@ public class Manager extends javax.swing.JFrame {
     private javax.swing.JButton checkstock;
     private javax.swing.JButton delete;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
