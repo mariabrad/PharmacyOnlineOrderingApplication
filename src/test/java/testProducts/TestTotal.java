@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.java.testProducts;
+package testProducts;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import junit.framework.*;
-import main.java.products.Total;
+import src.main.java.products.Total;
 
 public class TestTotal extends TestCase{
 
