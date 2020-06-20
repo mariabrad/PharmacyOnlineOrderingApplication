@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DeleteItem;
+package src.main.java.DeleteItem;
 
 import ManagerPage.Manager;
 import java.sql.Connection;
