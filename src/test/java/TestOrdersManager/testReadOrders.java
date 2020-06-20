@@ -1,9 +1,9 @@
 
-package TestOrders;
+package TestOrdersManager;
 
 
-import TestPackage.*;
-import com.mysql.jdbc.Connection;
+import TestPackageManager.*;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
