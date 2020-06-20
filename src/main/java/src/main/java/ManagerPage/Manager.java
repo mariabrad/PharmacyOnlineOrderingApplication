@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ManagerPage;
+package src.main.java.ManagerPage;
 
 import src.main.java.CheckStock.CheckStock;
 import src.main.java.DeleteItem.DeleteItem;
