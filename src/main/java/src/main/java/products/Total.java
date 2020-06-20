@@ -10,8 +10,11 @@ package main.java.products;
  * @author mariabrad
  */
 public class Total {
-   
-    static float tot(float a){
-        return a+15;
+   private float a;
+   public Total(float a){
+       this.a=a;
+   }
+    public float tot(){
+        return this.a+15;
     }
 }
