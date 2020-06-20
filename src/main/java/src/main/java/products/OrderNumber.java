@@ -12,7 +12,7 @@ package main.java.products;
 public class OrderNumber {
 
 
-    static int getNewAccountNumber() {
+    public int getNewAccountNumber() {
        int random = (int)(Math.random() * 50 + 1);
        return random;
     }
