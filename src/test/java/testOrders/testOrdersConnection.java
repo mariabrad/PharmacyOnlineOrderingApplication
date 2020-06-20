@@ -15,6 +15,8 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+
+import junit.framework.TestCase;
 import src.main.java.order.Orders;
 import org.junit.After;
 import org.junit.Before;
@@ -25,8 +27,16 @@ import static org.junit.Assert.*;
  *
  * @author mariabrad
  */
-public class testOrdersConnection {
-    
+public class TestOrdersConnection extends TestCase {
+
+    @Before
+    public void setUp() {
+
+    }
+
+    @After
+    public void tearDown() {
+    }
 
     @Test
     public void testConnection(){
@@ -37,10 +47,10 @@ public class testOrdersConnection {
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
       
         } catch (SQLException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @Test
@@ -53,11 +63,11 @@ public class testOrdersConnection {
            
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+
             thrown=true;
       
         } catch (SQLException ex) {
-            Logger.getLogger(testOrdersConnection.class.getName()).log(Level.SEVERE, null, ex);
+
         }
         assertTrue(thrown);
     }
