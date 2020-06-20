@@ -1,7 +1,7 @@
 
  package src.main.java.CheckStock;
 
-import ManagerPage.Manager;
+import src.main.java.ManagerPage.Manager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
