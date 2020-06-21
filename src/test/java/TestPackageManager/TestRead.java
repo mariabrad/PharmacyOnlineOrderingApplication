@@ -13,6 +13,10 @@ import java.util.logging.Logger;
 
 import org.junit.Test;
 import junit.framework.*;
+import src.main.java.ManageProducts.ManageProducts;
+import src.main.java.ManagerPage.Manager;
+
+import static org.junit.Assert.assertNotNull;
 
 public class TestRead extends TestCase {
     
@@ -55,6 +59,12 @@ public class TestRead extends TestCase {
         } catch (SQLException ex) {
             Logger.getLogger(TestRead.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Test
+    public void testPageA(){
+        Manager p=new Manager();
+        assertNotNull(p);
     }
 
 

@@ -20,6 +20,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import src.main.java.DeleteItem.DeleteItem;
+
 import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,6 +68,11 @@ public class TestStergere  {
 				ex.printStackTrace();;
             }
                       
+	}
+	@Test
+	public void testPage(){
+		src.main.java.DeleteItem.DeleteItem p=new DeleteItem();
+		assertNotNull(p);
 	}
         
 }

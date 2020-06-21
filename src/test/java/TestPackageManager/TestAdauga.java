@@ -12,6 +12,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import src.main.java.CheckStock.CheckStock;
+import src.main.java.ManageProducts.ManageProducts;
+
 import static org.junit.Assert.*;
 
 import java.sql.PreparedStatement;
@@ -69,5 +72,10 @@ public class TestAdauga {
 			}
                       
 	}
-        
+	@Test
+	public void testPageA(){
+		ManageProducts p=new ManageProducts();
+		assertNotNull(p);
+	}
+
 }

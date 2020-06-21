@@ -19,6 +19,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import src.main.java.ManageRequests.ManageRequests;
+
 import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,6 +65,11 @@ public class TestApproved {
 				ex.printStackTrace();
             }
                       
+	}
+	@Test
+	public void testPage(){
+		ManageRequests p=new ManageRequests();
+		assertNotNull(p);
 	}
         
 }
