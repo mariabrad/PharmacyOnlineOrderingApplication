@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class testRejected {
+public class TestRejected {
     
    private static Connection con1;
 	@BeforeClass
@@ -53,9 +53,9 @@ public class testRejected {
       String g=rs.getString("status");
 
 				
-				assertEquals("Approved",g);
+				assertEquals("Rejected",g);
             } catch (SQLException ex) {
-                Logger.getLogger(testRejected.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TestRejected.getName()).log(Level.SEVERE, null, ex);
             }
                       
 	}

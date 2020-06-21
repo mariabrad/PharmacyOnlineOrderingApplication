@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,7 +21,7 @@ import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class testEditeaza {
+public class TestEditeaza {
     
    private static Connection con1;
 	@BeforeClass
@@ -54,7 +56,7 @@ public class testEditeaza {
 				
 				assertEquals("dureri de cap",g);
             } catch (SQLException ex) {
-                Logger.getLogger(testEditeaza.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TestEditeaza.class.getName()).log(Level.SEVERE, null, ex);
             }
                       
 	}
