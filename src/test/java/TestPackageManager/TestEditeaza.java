@@ -27,7 +27,7 @@ public class TestEditeaza {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			con1 = DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
 		} catch (Exception e) {
 			System.err.println(e);

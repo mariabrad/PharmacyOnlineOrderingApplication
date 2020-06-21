@@ -21,7 +21,7 @@ public class TestReadOrders extends TestCase {
     public void testDelete(){
         try {
             int c;
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con1 =(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
              PreparedStatement insertie;
             insertie=con1.prepareStatement("select * from orders");
