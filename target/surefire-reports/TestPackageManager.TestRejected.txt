@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: TestPackageManager.TestRejected
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.076 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.344 sec <<< FAILURE!
 TestPackageManager.TestRejected  Time elapsed: 0.032 sec  <<< ERROR!
 java.lang.NullPointerException
-	at TestPackageManager.TestRejected.tearDownAfterClass(TestRejected.java:37)
+	at TestPackageManager.TestRejected.tearDownAfterClass(TestRejected.java:40)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

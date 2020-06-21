@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: TestPackageManager.TestEditeaza
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.049 sec <<< FAILURE!
-TestPackageManager.TestEditeaza  Time elapsed: 0.023 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.254 sec <<< FAILURE!
+TestPackageManager.TestEditeaza  Time elapsed: 0.068 sec  <<< ERROR!
 java.lang.NullPointerException
-	at TestPackageManager.TestEditeaza.tearDownAfterClass(TestEditeaza.java:39)
+	at TestPackageManager.TestEditeaza.tearDownAfterClass(TestEditeaza.java:41)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

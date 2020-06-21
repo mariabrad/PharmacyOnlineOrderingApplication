@@ -40,11 +40,7 @@ public class TestProductPage {
         Search p=new Search();
         assertNotNull(p);
     }
-    @Test
-    public void testPageC(){
-        Checkout p=new Checkout();
-        assertNotNull(p);
-    }
+
 
 
 

@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: TestPackageManager.TestAdauga
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.031 sec <<< FAILURE!
-addUserTest(TestPackageManager.TestAdauga)  Time elapsed: 0.007 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.186 sec <<< FAILURE!
+addUserTest(TestPackageManager.TestAdauga)  Time elapsed: 0.009 sec  <<< ERROR!
 java.lang.NullPointerException
-	at TestPackageManager.TestAdauga.addUserTest(TestAdauga.java:44)
+	at TestPackageManager.TestAdauga.addUserTest(TestAdauga.java:47)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -40,9 +40,9 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-TestPackageManager.TestAdauga  Time elapsed: 0.008 sec  <<< ERROR!
+TestPackageManager.TestAdauga  Time elapsed: 0.139 sec  <<< ERROR!
 java.lang.NullPointerException
-	at TestPackageManager.TestAdauga.tearDownAfterClass(TestAdauga.java:36)
+	at TestPackageManager.TestAdauga.tearDownAfterClass(TestAdauga.java:39)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
