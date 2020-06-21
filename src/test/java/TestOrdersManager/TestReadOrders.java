@@ -14,6 +14,11 @@ import java.util.logging.Logger;
 
 import org.junit.Test;
 import junit.framework.*;
+import src.main.java.CheckStock.CheckStock;
+import src.main.java.SearchItem.SearchItem;
+import src.main.java.ViewOrders.ViewOrders;
+
+import static org.junit.Assert.assertNotNull;
 
 public class TestReadOrders extends TestCase {
     
@@ -21,7 +26,7 @@ public class TestReadOrders extends TestCase {
     public void testDelete(){
         try {
             int c;
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con1 =(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
              PreparedStatement insertie;
             insertie=con1.prepareStatement("select * from orders");
@@ -51,6 +56,15 @@ public class TestReadOrders extends TestCase {
             Logger.getLogger(TestReadOrders.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    @Test
+    public void testPageA(){
+        ViewOrders p=new ViewOrders();
+        assertNotNull(p);
+    }
+    @Test
+    public void testPageB(){
+        SearchItem p=new SearchItem();
+        assertNotNull(p);
+    }
 
 }

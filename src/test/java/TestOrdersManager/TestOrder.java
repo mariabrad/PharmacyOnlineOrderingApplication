@@ -10,6 +10,9 @@ import java.util.logging.Logger;
 
 import org.junit.Test;
 import junit.framework.*;
+import src.main.java.CheckStock.CheckStock;
+
+import static org.junit.Assert.assertNotNull;
 
 public class TestOrder extends TestCase {
     
@@ -27,5 +30,10 @@ public class TestOrder extends TestCase {
         } catch (SQLException ex) {
             Logger.getLogger(TestOrder.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    @Test
+    public void testPageA(){
+        CheckStock p=new CheckStock();
+        assertNotNull(p);
     }
 }

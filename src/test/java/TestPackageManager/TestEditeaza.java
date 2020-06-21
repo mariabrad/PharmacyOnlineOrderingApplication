@@ -17,6 +17,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import src.main.java.ManageProducts.ManageProducts;
+
 import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,7 +29,7 @@ public class TestEditeaza {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			con1 = DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
 		} catch (Exception e) {
 			System.err.println(e);
@@ -59,6 +61,11 @@ public class TestEditeaza {
                 Logger.getLogger(TestEditeaza.class.getName()).log(Level.SEVERE, null, ex);
             }
                       
+	}
+	@Test
+	public void testPageA(){
+		ManageProducts p=new ManageProducts();
+		assertNotNull(p);
 	}
         
 }

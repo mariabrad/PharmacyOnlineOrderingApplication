@@ -20,6 +20,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import src.main.java.DeleteItem.DeleteItem;
+
 import static org.junit.Assert.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +32,7 @@ public class TestStergere  {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			con1 = DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
 		} catch (Exception e) {
 			System.err.println(e);
@@ -66,6 +68,11 @@ public class TestStergere  {
 				ex.printStackTrace();;
             }
                       
+	}
+	@Test
+	public void testPage(){
+		src.main.java.DeleteItem.DeleteItem p=new DeleteItem();
+		assertNotNull(p);
 	}
         
 }
