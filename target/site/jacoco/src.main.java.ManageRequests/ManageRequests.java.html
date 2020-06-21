@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ManageRequests.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FIS</a> &gt; <a href="index.source.html" class="el_package">src.main.java.ManageRequests</a> &gt; <span class="el_source">ManageRequests.java</span></div><h1>ManageRequests.java</h1><pre class="source lang-java linenums">
+package src.main.java.ManageRequests;
+
+import src.main.java.ManagerPage.Manager;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author Maria
+ */
+public class ManageRequests extends javax.swing.JFrame {
+
+    /**
+     * Creates new form ManageRequests
+     */
+<span class="fc" id="L26">    public ManageRequests() {</span>
+<span class="fc" id="L27">        initComponents();</span>
+<span class="fc" id="L28">        table_update();</span>
+        
+<span class="fc" id="L30">    }</span>
+    
+Connection con1;
+         PreparedStatement insertie;
+         private void table_update()
+         {
+             int c;
+                 try {
+<span class="fc" id="L38">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+<span class="fc" id="L39">            con1=(Connection) DriverManager.getConnection(&quot;jdbc:mysql://localhost/Credentials&quot;,&quot;root&quot;,&quot;M!lkdrink&quot;);</span>
+<span class="fc" id="L40">            insertie=con1.prepareStatement(&quot;select * from orders&quot;);</span>
+<span class="fc" id="L41">            ResultSet rs=insertie.executeQuery();</span>
+<span class="fc" id="L42">          ResultSetMetaData Rss=rs.getMetaData();</span>
+<span class="fc" id="L43">          c=Rss.getColumnCount();</span>
+<span class="fc" id="L44">          DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();</span>
+<span class="fc" id="L45">          Df.setRowCount(0);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">          while(rs.next())</span>
+          {
+<span class="fc" id="L48">              Vector v2=new Vector();</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">              for (int a=1;a&lt;=c;a++)</span>
+              {
+<span class="fc" id="L51">                  v2.add(rs.getString(&quot;id&quot;));</span>
+<span class="fc" id="L52">                  v2.add(rs.getString(&quot;name&quot;));</span>
+<span class="fc" id="L53">                  v2.add(rs.getString(&quot;status&quot;));</span>
+<span class="fc" id="L54">                  v2.add(rs.getFloat(&quot;sum&quot;));</span>
+               
+              }
+<span class="fc" id="L57">              Df.addRow(v2);</span>
+<span class="fc" id="L58">          }</span>
+           
+        
+<span class="nc" id="L61">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L62">            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L63">        } catch (SQLException ex) {</span>
+<span class="fc" id="L64">            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L65">        }</span>
+                
+<span class="fc" id="L67">         }</span>
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="fc" id="L72">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L73">        jLabel6 = new javax.swing.JLabel();</span>
+<span class="fc" id="L74">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="fc" id="L75">        jTable1 = new javax.swing.JTable();</span>
+<span class="fc" id="L76">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="fc" id="L77">        txtname = new javax.swing.JTextField();</span>
+<span class="fc" id="L78">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="fc" id="L79">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="fc" id="L80">        txtstatus = new javax.swing.JTextField();</span>
+<span class="fc" id="L81">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="fc" id="L82">        txtsum = new javax.swing.JTextField();</span>
+<span class="fc" id="L83">        jButton3 = new javax.swing.JButton();</span>
+<span class="fc" id="L84">        jButton1 = new javax.swing.JButton();</span>
+<span class="fc" id="L85">        jButton2 = new javax.swing.JButton();</span>
+<span class="fc" id="L86">        jLabel7 = new javax.swing.JLabel();</span>
+
+<span class="fc" id="L88">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L89">        setMinimumSize(new java.awt.Dimension(800, 400));</span>
+<span class="fc" id="L90">        getContentPane().setLayout(null);</span>
+
+<span class="fc" id="L92">        jLabel1.setFont(new java.awt.Font(&quot;Vivaldi&quot;, 0, 18)); // NOI18N</span>
+<span class="fc" id="L93">        jLabel1.setText(&quot;Manage Requests&quot;);</span>
+<span class="fc" id="L94">        getContentPane().add(jLabel1);</span>
+<span class="fc" id="L95">        jLabel1.setBounds(218, 11, 183, 42);</span>
+
+<span class="fc" id="L97">        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/e881bba87734db35285d04ea1ddec35f - Copy.jpg&quot;))); // NOI18N</span>
+<span class="fc" id="L98">        getContentPane().add(jLabel6);</span>
+<span class="fc" id="L99">        jLabel6.setBounds(20, 11, 140, 150);</span>
+
+<span class="fc" id="L101">        jTable1.setModel(new javax.swing.table.DefaultTableModel(</span>
+            new Object [][] {
+
+            },
+            new String [] {
+                &quot;id&quot;, &quot;name&quot;, &quot;status&quot;, &quot;sum&quot;
+            }
+<span class="fc" id="L108">        ) {</span>
+<span class="fc" id="L109">            Class[] types = new Class [] {</span>
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+<span class="nc" id="L114">                return types [columnIndex];</span>
+            }
+        });
+<span class="fc" id="L117">        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L119">                jTable1MouseClicked(evt);</span>
+<span class="nc" id="L120">            }</span>
+        });
+<span class="fc" id="L122">        jScrollPane1.setViewportView(jTable1);</span>
+
+<span class="fc" id="L124">        getContentPane().add(jScrollPane1);</span>
+<span class="fc" id="L125">        jScrollPane1.setBounds(419, 11, 320, 290);</span>
+
+<span class="fc" id="L127">        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, &quot;Register&quot;, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(&quot;Tahoma&quot;, 0, 11), new java.awt.Color(0, 204, 153))); // NOI18N</span>
+
+<span class="fc" id="L129">        txtname.setText(&quot; &quot;);</span>
+
+<span class="fc" id="L131">        jLabel3.setText(&quot;Name&quot;);</span>
+
+<span class="fc" id="L133">        jLabel4.setText(&quot;Status&quot;);</span>
+
+<span class="fc" id="L135">        txtstatus.setText(&quot; &quot;);</span>
+
+<span class="fc" id="L137">        jLabel5.setText(&quot;Sum&quot;);</span>
+
+<span class="fc" id="L139">        txtsum.setText(&quot; &quot;);</span>
+
+<span class="fc" id="L141">        jButton3.setText(&quot;Approve&quot;);</span>
+<span class="fc" id="L142">        jButton3.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L144">                jButton3ActionPerformed(evt);</span>
+<span class="nc" id="L145">            }</span>
+        });
+
+<span class="fc" id="L148">        jButton1.setText(&quot;Reject&quot;);</span>
+<span class="fc" id="L149">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L151">                jButton1ActionPerformed(evt);</span>
+<span class="nc" id="L152">            }</span>
+        });
+
+<span class="fc" id="L155">        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);</span>
+<span class="fc" id="L156">        jPanel1.setLayout(jPanel1Layout);</span>
+<span class="fc" id="L157">        jPanel1Layout.setHorizontalGroup(</span>
+<span class="fc" id="L158">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L159">            .addGroup(jPanel1Layout.createSequentialGroup()</span>
+<span class="fc" id="L160">                .addContainerGap()</span>
+<span class="fc" id="L161">                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L162">                    .addComponent(jLabel4)</span>
+<span class="fc" id="L163">                    .addComponent(jLabel5)</span>
+<span class="fc" id="L164">                    .addComponent(jLabel3))</span>
+<span class="fc" id="L165">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L166">                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)</span>
+<span class="fc" id="L167">                    .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)</span>
+<span class="fc" id="L168">                    .addComponent(txtstatus)</span>
+<span class="fc" id="L169">                    .addComponent(txtsum))</span>
+<span class="fc" id="L170">                .addContainerGap())</span>
+<span class="fc" id="L171">            .addGroup(jPanel1Layout.createSequentialGroup()</span>
+<span class="fc" id="L172">                .addGap(25, 25, 25)</span>
+<span class="fc" id="L173">                .addComponent(jButton3)</span>
+<span class="fc" id="L174">                .addGap(29, 29, 29)</span>
+<span class="fc" id="L175">                .addComponent(jButton1)</span>
+<span class="fc" id="L176">                .addGap(0, 28, Short.MAX_VALUE))</span>
+        );
+<span class="fc" id="L178">        jPanel1Layout.setVerticalGroup(</span>
+<span class="fc" id="L179">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L180">            .addGroup(jPanel1Layout.createSequentialGroup()</span>
+<span class="fc" id="L181">                .addContainerGap()</span>
+<span class="fc" id="L182">                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L183">                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L184">                    .addComponent(jLabel3))</span>
+<span class="fc" id="L185">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="fc" id="L186">                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L187">                    .addComponent(jLabel4)</span>
+<span class="fc" id="L188">                    .addComponent(txtstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L189">                .addGap(18, 18, 18)</span>
+<span class="fc" id="L190">                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L191">                    .addComponent(jLabel5)</span>
+<span class="fc" id="L192">                    .addComponent(txtsum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L193">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)</span>
+<span class="fc" id="L194">                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L195">                    .addComponent(jButton3)</span>
+<span class="fc" id="L196">                    .addComponent(jButton1)))</span>
+        );
+
+<span class="fc" id="L199">        getContentPane().add(jPanel1);</span>
+<span class="fc" id="L200">        jPanel1.setBounds(190, 80, 230, 220);</span>
+<span class="fc" id="L201">        jPanel1.getAccessibleContext().setAccessibleName(&quot;Requests&quot;);</span>
+
+<span class="fc" id="L203">        jButton2.setText(&quot;Done&quot;);</span>
+<span class="fc" id="L204">        jButton2.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L206">                jButton2ActionPerformed(evt);</span>
+<span class="nc" id="L207">            }</span>
+        });
+<span class="fc" id="L209">        getContentPane().add(jButton2);</span>
+<span class="fc" id="L210">        jButton2.setBounds(30, 280, 104, 23);</span>
+
+<span class="fc" id="L212">        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/back2.jpg&quot;))); // NOI18N</span>
+<span class="fc" id="L213">        jLabel7.setText(&quot; &quot;);</span>
+<span class="fc" id="L214">        getContentPane().add(jLabel7);</span>
+<span class="fc" id="L215">        jLabel7.setBounds(-10, 0, 1160, 450);</span>
+
+<span class="fc" id="L217">        pack();</span>
+<span class="fc" id="L218">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+<span class="nc" id="L221">  DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();</span>
+<span class="nc" id="L222">         int selectedIndex=jTable1.getSelectedRow();</span>
+         try {
+<span class="nc" id="L224">             int id= Integer.parseInt(Df.getValueAt(selectedIndex,0).toString());</span>
+<span class="nc" id="L225">             String nume=txtname.getText();</span>
+<span class="nc" id="L226">              String status=&quot;Rejected&quot;;</span>
+<span class="nc" id="L227">               String sum=txtsum.getText();</span>
+          
+             
+<span class="nc" id="L230">                  Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+<span class="nc" id="L231">            con1=(Connection) DriverManager.getConnection(&quot;jdbc:mysql://localhost/Credentials&quot;,&quot;root&quot;,&quot;M!lkdrink&quot;);</span>
+<span class="nc" id="L232">            insertie=con1.prepareStatement(&quot;update orders set name=?,status=?,sum=? where id=?&quot;);</span>
+            
+  
+<span class="nc" id="L235">            insertie.setString(1,nume);</span>
+<span class="nc" id="L236">            insertie.setString(2,status);</span>
+<span class="nc" id="L237">            insertie.setString(3,sum);</span>
+         
+<span class="nc" id="L239">              insertie.setInt(4,id);</span>
+<span class="nc" id="L240">            insertie.executeUpdate();</span>
+<span class="nc" id="L241">            JOptionPane.showMessageDialog(this,&quot;S-a updatat inregistrarea&quot;);</span>
+<span class="nc" id="L242">            table_update();</span>
+<span class="nc" id="L243">            txtname.setText(&quot;&quot;);</span>
+<span class="nc" id="L244">             txtstatus.setText(&quot;&quot;);</span>
+<span class="nc" id="L245">              txtsum.setText(&quot;&quot;);</span>
+         
+<span class="nc" id="L247">              txtname.requestFocus();</span>
+        
+<span class="nc" id="L249">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L250">            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L251">        } catch (SQLException ex) {</span>
+<span class="nc" id="L252">            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L253">        }</span>
+        
+<span class="nc" id="L255">    }//GEN-LAST:event_jButton1ActionPerformed</span>
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+<span class="nc" id="L258">             DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();</span>
+<span class="nc" id="L259">         int selectedIndex=jTable1.getSelectedRow();</span>
+         try {
+<span class="nc" id="L261">             int id= Integer.parseInt(Df.getValueAt(selectedIndex,0).toString());</span>
+<span class="nc" id="L262">             String nume=txtname.getText();</span>
+<span class="nc" id="L263">              String status=&quot;Approved&quot;;</span>
+<span class="nc" id="L264">               String sum=txtsum.getText();</span>
+          
+             
+<span class="nc" id="L267">                  Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+<span class="nc" id="L268">            con1=(Connection) DriverManager.getConnection(&quot;jdbc:mysql://localhost/Credentials&quot;,&quot;root&quot;,&quot;M!lkdrink&quot;);</span>
+<span class="nc" id="L269">            insertie=con1.prepareStatement(&quot;update orders set name=?,status=?,sum=? where id=?&quot;);</span>
+            
+  
+<span class="nc" id="L272">            insertie.setString(1,nume);</span>
+<span class="nc" id="L273">            insertie.setString(2,status);</span>
+<span class="nc" id="L274">            insertie.setString(3,sum);</span>
+         
+<span class="nc" id="L276">              insertie.setInt(4,id);</span>
+<span class="nc" id="L277">            insertie.executeUpdate();</span>
+<span class="nc" id="L278">            JOptionPane.showMessageDialog(this,&quot;S-a updatat inregistrarea&quot;);</span>
+<span class="nc" id="L279">            table_update();</span>
+<span class="nc" id="L280">            txtname.setText(&quot;&quot;);</span>
+<span class="nc" id="L281">             txtstatus.setText(&quot;&quot;);</span>
+<span class="nc" id="L282">              txtsum.setText(&quot;&quot;);</span>
+         
+<span class="nc" id="L284">              txtname.requestFocus();</span>
+        
+<span class="nc" id="L286">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L287">            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L288">        } catch (SQLException ex) {</span>
+<span class="nc" id="L289">            Logger.getLogger(ManageRequests.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L290">        }</span>
+        
+<span class="nc" id="L292">    }//GEN-LAST:event_jButton3ActionPerformed</span>
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+<span class="nc" id="L295">  DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();</span>
+<span class="nc" id="L296">         int selectedIndex=jTable1.getSelectedRow();</span>
+<span class="nc" id="L297">         txtname.setText(Df.getValueAt(selectedIndex,1).toString());</span>
+<span class="nc" id="L298">         txtstatus.setText(Df.getValueAt(selectedIndex,2).toString());</span>
+<span class="nc" id="L299">         txtsum.setText(Df.getValueAt(selectedIndex,3).toString());</span>
+                 // TODO add your handling code here:
+<span class="nc" id="L301">    }//GEN-LAST:event_jTable1MouseClicked</span>
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+<span class="nc" id="L304">          Manager m=new Manager();</span>
+<span class="nc" id="L305">      this.setVisible(false);</span>
+<span class="nc" id="L306">        m.setVisible(true);</span>
+        
+<span class="nc" id="L308">    }//GEN-LAST:event_jButton2ActionPerformed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L320" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L321" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L322">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L323">                    break;</span>
+                }
+            }
+<span class="nc" id="L326">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L327">            java.util.logging.Logger.getLogger(ManageRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L328">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L329">            java.util.logging.Logger.getLogger(ManageRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L330">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L331">            java.util.logging.Logger.getLogger(ManageRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L332">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L333">            java.util.logging.Logger.getLogger(ManageRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L334">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L345">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L347">                new ManageRequests().setVisible(true);</span>
+<span class="nc" id="L348">            }</span>
+        });
+<span class="nc" id="L350">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtname;
+    private javax.swing.JTextField txtstatus;
+    private javax.swing.JTextField txtsum;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

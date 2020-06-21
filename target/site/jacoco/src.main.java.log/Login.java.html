@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Login.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FIS</a> &gt; <a href="index.source.html" class="el_package">src.main.java.log</a> &gt; <span class="el_source">Login.java</span></div><h1>Login.java</h1><pre class="source lang-java linenums">/*
+
+ */
+package src.main.java.log;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import src.main.java.ManagerPage.Manager;
+
+/**
+ *
+ * @author mariabrad
+ */
+public class Login extends javax.swing.JFrame {
+
+
+<span class="fc" id="L24">    public Login() {</span>
+<span class="fc" id="L25">        initComponents();</span>
+<span class="fc" id="L26">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+
+    private void initComponents() {
+
+<span class="fc" id="L32">        jButton1 = new javax.swing.JButton();</span>
+<span class="fc" id="L33">        jPassword = new javax.swing.JPasswordField();</span>
+<span class="fc" id="L34">        jText = new javax.swing.JTextField();</span>
+<span class="fc" id="L35">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L36">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="fc" id="L37">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="fc" id="L38">        jLabel3 = new javax.swing.JLabel();</span>
+
+<span class="fc" id="L40">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L41">        setMinimumSize(new java.awt.Dimension(800, 400));</span>
+<span class="fc" id="L42">        getContentPane().setLayout(null);</span>
+
+<span class="fc" id="L44">        jButton1.setBackground(new java.awt.Color(151, 184, 216));</span>
+<span class="fc" id="L45">        jButton1.setText(&quot;Log in&quot;);</span>
+<span class="fc" id="L46">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L48">                jButton1ActionPerformed(evt);</span>
+<span class="nc" id="L49">            }</span>
+        });
+<span class="fc" id="L51">        getContentPane().add(jButton1);</span>
+<span class="fc" id="L52">        jButton1.setBounds(330, 320, 130, 29);</span>
+
+<span class="fc" id="L54">        jPassword.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L56">                jPasswordActionPerformed(evt);</span>
+<span class="nc" id="L57">            }</span>
+        });
+<span class="fc" id="L59">        getContentPane().add(jPassword);</span>
+<span class="fc" id="L60">        jPassword.setBounds(330, 220, 190, 26);</span>
+<span class="fc" id="L61">        getContentPane().add(jText);</span>
+<span class="fc" id="L62">        jText.setBounds(330, 180, 190, 26);</span>
+
+<span class="fc" id="L64">        jLabel1.setText(&quot;Username&quot;);</span>
+<span class="fc" id="L65">        getContentPane().add(jLabel1);</span>
+<span class="fc" id="L66">        jLabel1.setBounds(240, 170, 80, 40);</span>
+
+<span class="fc" id="L68">        jLabel2.setText(&quot;Password&quot;);</span>
+<span class="fc" id="L69">        getContentPane().add(jLabel2);</span>
+<span class="fc" id="L70">        jLabel2.setBounds(240, 210, 70, 40);</span>
+
+<span class="fc" id="L72">        jLabel4.setFont(new java.awt.Font(&quot;Luminari&quot;, 0, 36)); // NOI18N</span>
+<span class="fc" id="L73">        jLabel4.setText(&quot;Pharmacy Online Ordering Application&quot;);</span>
+<span class="fc" id="L74">        getContentPane().add(jLabel4);</span>
+<span class="fc" id="L75">        jLabel4.setBounds(80, 0, 700, 60);</span>
+
+<span class="fc" id="L77">        jLabel3.setIcon(new javax.swing.ImageIcon(Login.class.getResource(&quot;/colorful-capsule-pills-on-white-background-pharmaceutical-artinun-prekmoung.jpg&quot;))); // NOI18N</span>
+<span class="fc" id="L78">        jLabel3.setPreferredSize(new java.awt.Dimension(800, 400));</span>
+<span class="fc" id="L79">        getContentPane().add(jLabel3);</span>
+<span class="fc" id="L80">        jLabel3.setBounds(0, 0, 800, 400);</span>
+
+<span class="fc" id="L82">        pack();</span>
+<span class="fc" id="L83">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+<span class="nc" id="L86">       String password=String.valueOf(jPassword.getPassword());</span>
+<span class="nc" id="L87">       HashPassword pass=new HashPassword(password);</span>
+<span class="nc" id="L88">        password=pass.encrypt();</span>
+
+        try {
+<span class="nc" id="L91">            Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);</span>
+<span class="nc" id="L92">             Connection connection =DriverManager.getConnection(&quot;jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Bucharest&quot;,&quot;root&quot;,&quot;M!lkdrink&quot;);</span>
+<span class="nc" id="L93">             PreparedStatement ps = connection.prepareStatement(&quot;SELECT `username`, `password`, `role` FROM `tabel` WHERE `username` = ? AND `password` = ?&quot;);</span>
+<span class="nc" id="L94">            ps.setString(1, jText.getText());</span>
+<span class="nc" id="L95">            ps.setString(2, password);</span>
+<span class="nc" id="L96">            ResultSet result = ps.executeQuery();</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if(result.next()){</span>
+         
+<span class="nc" id="L99">                String role=result.getString(&quot;role&quot;);</span>
+<span class="nc" id="L100">                PasswordCompare p=new PasswordCompare(role,&quot;a&quot;);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">                 if(p.compare()){</span>
+<span class="nc" id="L102">                     Manager hme=new Manager();</span>
+<span class="nc" id="L103">                     this.setVisible(false);</span>
+<span class="nc" id="L104">                     hme.setVisible(true);</span>
+                     
+<span class="nc" id="L106">                 }</span>
+                 else{
+                     
+<span class="nc" id="L109">                     Home hme=new Home();</span>
+<span class="nc" id="L110">                     this.setVisible(false);</span>
+<span class="nc" id="L111">                     hme.setVisible(true);</span>
+                     
+                 }
+<span class="nc" id="L114">            }</span>
+            else{
+<span class="nc" id="L116">              JOptionPane.showMessageDialog(this,&quot;Wrong credentials!&quot;);</span>
+                
+            }
+<span class="nc" id="L119">             } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L120">            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);</span>
+      
+<span class="nc" id="L122">        } catch (SQLException ex) {</span>
+<span class="nc" id="L123">            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L124">        }</span>
+              
+<span class="nc" id="L126">    }//GEN-LAST:event_jButton1ActionPerformed</span>
+
+    private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L130">    }//GEN-LAST:event_jPasswordActionPerformed</span>
+
+
+    public static void main(String args[]) {
+
+
+        /* Create and display the form */
+<span class="nc" id="L137">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L139">                new Login().setVisible(true);</span>
+<span class="nc" id="L140">            }</span>
+        });
+<span class="nc" id="L142">    }</span>
+
+
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPasswordField jPassword;
+    private javax.swing.JTextField jText;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
