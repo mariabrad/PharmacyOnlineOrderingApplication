@@ -41,6 +41,16 @@ public class TestProductPage {
         assertNotNull(p);
     }
 
+    @Test
+    public void testPageF(){
+        Prod p=null;
+        assertNull(p);
+    }
+    @Test
+    public void testPageSF(){
+        Search p=null;
+        assertNull(p);
+    }
 
 
 
