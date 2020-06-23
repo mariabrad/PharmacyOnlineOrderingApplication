@@ -53,13 +53,13 @@ public class Home extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e881bba87734db35285d04ea1ddec35f - Copy.jpg")));
         jLabel1.setText("Customer's Homepage");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(50, 0, 400, 150);
 
-        jButton1.setFont(new java.awt.Font("Vivaldi", 2, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Calibri", 2, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shopping-cart-icon-png-favpng-e5DiMUYLNYaTjdsibphFUCAxC.png"))); // NOI18N
         jButton1.setText("Checkout");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(620, 10, 170, 49);
 
-        jButton2.setFont(new java.awt.Font("Vivaldi", 0, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton2.setText("My Orders");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +80,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(150, 220, 150, 37);
 
-        jButton3.setFont(new java.awt.Font("Vivaldi", 0, 18)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton3.setText("Search product");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
