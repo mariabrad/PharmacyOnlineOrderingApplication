@@ -14,10 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Maria
- */
+
 public class ManageRequests extends javax.swing.JFrame {
 
     /**
@@ -89,7 +86,7 @@ Connection con1;
         setMinimumSize(new java.awt.Dimension(800, 400));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel1.setText("Manage Requests");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(218, 11, 183, 42);
