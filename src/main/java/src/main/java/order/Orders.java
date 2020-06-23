@@ -57,7 +57,7 @@ public class Orders extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(Home.class.getResource("/add_buy_cart_ecommerce_online_shopping_store-512.png"))); // NOI18N
         jLabel1.setText("My Orders");
         getContentPane().add(jLabel1);
@@ -94,12 +94,12 @@ public class Orders extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(320, 116, 415, 266);
 
-        jLabel2.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel2.setText("Nume");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(30, 182, 50, 29);
 
-        jLabel3.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel3.setText("Status");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(30, 234, 60, 29);
@@ -131,12 +131,12 @@ public class Orders extends javax.swing.JFrame {
         getContentPane().add(txtid);
         txtid.setBounds(144, 127, 170, 32);
 
-        jLabel4.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel4.setText("Id");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(30, 133, 37, 26);
 
-        jButton1.setFont(new java.awt.Font("Vivaldi", 0, 15)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Calibri", 0, 15)); // NOI18N
         jButton1.setText("Done");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
