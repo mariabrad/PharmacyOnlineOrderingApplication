@@ -20,7 +20,7 @@ public class TestOrder extends TestCase {
     public void testConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con1 =(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+            Connection con1 =(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
             assertTrue(con1.prepareStatement("select * from orders").executeQuery().next());
            
            

@@ -27,7 +27,7 @@ public class TestReadOrders extends TestCase {
         try {
             int c;
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con1 =(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+            Connection con1 =(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
              PreparedStatement insertie;
             insertie=con1.prepareStatement("select * from orders");
             ResultSet rs=insertie.executeQuery();

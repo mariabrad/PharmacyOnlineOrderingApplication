@@ -28,7 +28,7 @@ public class TestAdauga {
 	public static void setUpBeforeClass() throws Exception {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-			con1 = DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
+			con1 = DriverManager.getConnection("jdbc:mysql://localhost/Credentials?useLegacyDatetimeCode=false&serverTimezone=Europe/Bucharest","root","M!lkdrink");
 		} catch (Exception e) {
 			System.err.println(e);
 		}
