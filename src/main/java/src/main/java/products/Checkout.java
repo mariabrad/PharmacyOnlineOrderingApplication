@@ -85,17 +85,17 @@ public class Checkout extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(278, 102, 222, 55);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         jLabel1.setText("Total");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(167, 107, 105, 55);
 
-        jLabel2.setFont(new java.awt.Font("Vivaldi", 0, 26)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 26)); // NOI18N
         jLabel2.setText("Checkout");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(319, 6, 150, 46);
 
-        jButton1.setFont(new java.awt.Font("Vivaldi", 0, 16)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jButton1.setText("Place your Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
