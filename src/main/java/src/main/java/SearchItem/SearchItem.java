@@ -103,7 +103,7 @@ public class SearchItem extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 140, 150);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("Search item");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 90, 102, 31);
