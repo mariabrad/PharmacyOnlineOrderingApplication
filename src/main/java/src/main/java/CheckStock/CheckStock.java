@@ -13,10 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Maria
- */
+
 public class CheckStock extends javax.swing.JFrame {
 
     /**
@@ -83,7 +80,7 @@ public class CheckStock extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(50, 310, 140, 23);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("Check Stock");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(190, 20, 114, 31);
