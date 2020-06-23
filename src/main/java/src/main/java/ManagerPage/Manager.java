@@ -55,7 +55,7 @@ public class Manager extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("Manager's Page");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(226, 25, 197, 70);
