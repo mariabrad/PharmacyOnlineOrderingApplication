@@ -18,10 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Maria
- */
+
 public class DeleteItem extends javax.swing.JFrame {
 
     /**
@@ -29,7 +26,7 @@ public class DeleteItem extends javax.swing.JFrame {
      */
     public DeleteItem() {
         initComponents();
-         table_update();
+        table_update();
     }
 
     /**
@@ -75,7 +72,7 @@ public class DeleteItem extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(10, 0, 140, 150);
 
-        jLabel1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("Delete item");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(200, 0, 197, 40);
@@ -181,15 +178,15 @@ public class DeleteItem extends javax.swing.JFrame {
         jButton3.setBounds(30, 240, 120, 23);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object [][] {
 
-            },
-            new String [] {
-                "ID", "Nume", "Descriere", "Expirare", "Prescriptie", "Ingredient", "Pret", "Cantitate"
-            }
+                },
+                new String [] {
+                        "ID", "Nume", "Descriere", "Expirare", "Prescriptie", "Ingredient", "Pret", "Cantitate"
+                }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+                    java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -223,42 +220,42 @@ public class DeleteItem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     Connection con1;
-        PreparedStatement insertie;
-       private void table_update()
-        {   int c;
-                 try {
+    PreparedStatement insertie;
+    private void table_update()
+    {   int c;
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             con1=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/Credentials","root","M!lkdrink");
             insertie=con1.prepareStatement("select * from produse");
             ResultSet rs=insertie.executeQuery();
-          ResultSetMetaData Rss=rs.getMetaData();
-          c=Rss.getColumnCount();
-          DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();
-          Df.setRowCount(0);
-          while(rs.next())
-          {
-              Vector v2=new Vector();
-              for (int a=1;a<=c;a++)
-              {
-                  v2.add(rs.getString("id"));
-                  v2.add(rs.getString("nume"));
-                  v2.add(rs.getString("descriere"));
-                  v2.add(rs.getString("expirare"));
-                  v2.add(rs.getString("prescriptie"));
-                  v2.add(rs.getString("ingredient"));
-                  v2.add(rs.getString("pret"));
-                  v2.add(rs.getString("cantitate"));
-              }
-              Df.addRow(v2);
-          }
-           
-        
+            ResultSetMetaData Rss=rs.getMetaData();
+            c=Rss.getColumnCount();
+            DefaultTableModel Df=(DefaultTableModel)jTable1.getModel();
+            Df.setRowCount(0);
+            while(rs.next())
+            {
+                Vector v2=new Vector();
+                for (int a=1;a<=c;a++)
+                {
+                    v2.add(rs.getString("id"));
+                    v2.add(rs.getString("nume"));
+                    v2.add(rs.getString("descriere"));
+                    v2.add(rs.getString("expirare"));
+                    v2.add(rs.getString("prescriptie"));
+                    v2.add(rs.getString("ingredient"));
+                    v2.add(rs.getString("pret"));
+                    v2.add(rs.getString("cantitate"));
+                }
+                Df.addRow(v2);
+            }
+
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(DeleteItem.class.getName()).log(Level.SEVERE, null, ex);
         }
-                }
+    }
     private void txtnumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnumeActionPerformed
@@ -334,10 +331,10 @@ public class DeleteItem extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         Manager m=new Manager();
-      this.setVisible(false);
+        Manager m=new Manager();
+        this.setVisible(false);
         m.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -347,7 +344,7 @@ public class DeleteItem extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
